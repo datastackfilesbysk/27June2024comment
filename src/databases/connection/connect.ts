@@ -55,10 +55,10 @@ export async function connectToPostgres() {
     }
   } catch (error: any) {
     isConnected = false;
-    vscode.window.showErrorMessage(
-      "Failed to connect to PostgreSQL database: " +
-        (error instanceof Error ? error.message : String(error))
-    );
+    // vscode.window.showErrorMessage(
+    //   "Failed to connect to PostgreSQL database: " +
+    //     (error instanceof Error ? error.message : String(error))
+    // );
   }
   return client;
 }
