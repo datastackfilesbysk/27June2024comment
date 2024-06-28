@@ -24,19 +24,19 @@ export async function checkProjectEntry(
     const projecturl = projectres.url;
     const mainFoldername = projectres.mainFolderName;
 
-    vscode.window.showInformationMessage("Main Folder Name:", mainFoldername);
+    //vscode.window.showInformationMessage("Main Folder Name:", mainFoldername);
     const query = `SELECT * FROM dotnet.projects WHERE git_repo_url = $1`;
 
     try {
       const res = await client.query(query, [projecturl]);
       if (res.rows.length > 0 && filemainFolder.includes(mainFoldername)) {
         const project = res.rows[0];
-        vscode.window.showInformationMessage(
-          `Project Found: ${project.name}, Status: ${project.status}, Status Change Date: ${project.status_change_date}`
-        );
+        // vscode.window.showInformationMessage(
+        //   `Project Found: ${project.name}, Status: ${project.status}, Status Change Date: ${project.status_change_date}`
+        // );
         return Number.parseInt(project.id);
       } else {
-        vscode.window.showInformationMessage("Project not found.");
+       // vscode.window.showInformationMessage("Project not found.");
         return null;
       }
     } catch (err: any) {
