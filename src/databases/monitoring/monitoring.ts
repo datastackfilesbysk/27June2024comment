@@ -13,7 +13,7 @@ export async function checkDatabaseConnection(client: Client | null) {
     }
     // This line checks if the connection is active by running a simple query
     await client.query("SELECT 1");
-    vscode.window.showInformationMessage("Connected to PostgreSQL database.");
+    //vscode.window.showInformationMessage("Connected to PostgreSQL database.");
   } catch (error: any) {
     // vscode.window.showErrorMessage(
     //   "PostgreSQL database connection error: " +
@@ -27,9 +27,9 @@ export async function checkDatabaseConnection(client: Client | null) {
       }
       await client.connect(); // Ensure the newly created client is connected
       await client.query("SELECT 1");
-      vscode.window.showInformationMessage(
-        "Reconnected to PostgreSQL database."
-      );
+      // vscode.window.showInformationMessage(
+      //   "Reconnected to PostgreSQL database."
+      // );
     } catch (retryError: any) {
       vscode.window.showErrorMessage(
         "Retry failed: PostgreSQL database connection error: " +
